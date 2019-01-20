@@ -34,7 +34,7 @@ class MapComponent extends Component {
     // redux workaround 
     this.setState(prevState => ({
       data: prevState.data.map(obj =>
-        obj.name === marker.name
+        obj._id === marker._id
           ? Object.assign(obj, { visible: !obj.visible })
           : obj
       )
