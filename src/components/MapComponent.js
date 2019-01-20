@@ -3,7 +3,6 @@ import ReactMapboxGl, {
   ZoomControl,
   RotationControl,  
   Marker,
-  Cluster,
 } from "react-mapbox-gl";
 import { connect } from "react-redux";
 import PopupComponent from "./PopupComponent";
@@ -41,12 +40,7 @@ class MapComponent extends Component {
       )
     }))
   }
-  clusterMarker = (coordinates) => (
-    <Marker coordinates={coordinates}>
-      
-    </Marker>
-  );
-
+ 
   render() {
     
     return (
@@ -63,8 +57,9 @@ class MapComponent extends Component {
             movingMethod="easeTo"
             animationOptions={{animate: true, duration: 1500}}
           >
-          <Cluster ClusterMarkerFactory={this.clusterMarker}>
+         
             {this.props.venues.venues.map(marker => (
+              
               <Marker
                 coordinates={[marker.location.lng, marker.location.lat]}
                 anchor="bottom"
@@ -78,10 +73,10 @@ class MapComponent extends Component {
                   style={{ width: 32, height: 32, cursor: "pointer" }}
                 />
                 
+             
               </Marker>
-                
             ))}
-            </Cluster>
+        
             {this.state.data.map(marker => (<PopupComponent lng={marker.location.lng} lat={marker.location.lat} name={marker.name} visible={marker.visible} icon={`${marker.icon.prefix}bg_64${marker.icon.suffix}`} description={marker.description} url={marker.url} likes={marker.likes ? marker.likes : "N/A"} rating={marker.rating ? marker.rating : "N/A"} status={marker.hours ? marker.hours.status : "N/A"} address={marker.location.formattedAddress.map(item => <span>{item}<br/></span>)} number={marker.contact ? marker.contact : "N/A"}>
             </PopupComponent>))}
             <ZoomControl />

@@ -5,7 +5,6 @@ import ReactMapboxGl, {
   Layer,
   Feature,
   Marker,
-  Cluster,
   
  
 } from "react-mapbox-gl";
@@ -50,9 +49,7 @@ const layerPaint = {
 const zoom = [14]
 const center = [17.1628, 48.1576]
 const Map = ReactMapboxGl({
-  accessToken:
-    token
-});
+  accessToken: token});
 
 class HeatMapComponent extends Component {
   constructor(props) {
@@ -65,7 +62,7 @@ class HeatMapComponent extends Component {
     };
   }
   componentDidMount(){
-    console.log(process.env.REACT_APP_apiKey)
+    
     axios.get("https://instarea-projekt-backend.herokuapp.com/api/venues").then((res) => {
         this.setState({
             heatData: res.data
@@ -116,7 +113,7 @@ class HeatMapComponent extends Component {
       ))}
         </Layer>
 
-      <Cluster ClusterMarkerFactory={this.clusterMarker}>
+     
         {this.props.venues.venues.map(marker => (
           <Marker
             coordinates={[marker.location.lng, marker.location.lat]}
@@ -134,7 +131,7 @@ class HeatMapComponent extends Component {
           </Marker>
             
         ))}
-        </Cluster>
+       
         {this.state.data.map(marker => (<PopupComponent lng={marker.location.lng} lat={marker.location.lat} name={marker.name} visible={marker.visible} icon={`${marker.icon.prefix}bg_64${marker.icon.suffix}`} description={marker.description} url={marker.url} likes={marker.likes} rating={marker.rating} status={marker.hours ? marker.hours.status : "N/A"} address={marker.location.formattedAddress.map(item => <span>{item}<br/></span>)} number={marker.contact ? marker.contact : "N/A"}>
         </PopupComponent>))}
         <ZoomControl />
