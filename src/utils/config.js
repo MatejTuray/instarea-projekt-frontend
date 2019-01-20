@@ -1,2 +1,0 @@
-const token = "pk.eyJ1IjoibWF0ZWp0dXJheSIsImEiOiJjanF3ajA2MGQwOG05M3hzYjVhZXRyODN5In0.CoanAOi8YQ6nIjVmT-Pcbg"
-export default token
