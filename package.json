@@ -3,9 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mapbox/mapbox-gl-draw": "^1.1.1",
+    "@material-ui/core": "^3.9.0",
+    "antd": "^3.12.3",
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
+    "jest": "^23.6.0",
+    "mapbox-gl": "^0.52.0",
+    "mdbreact": "^4.8.7",
     "react": "^16.7.0",
+    "react-burger-menu": "^2.6.1",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.3"
+    "react-map-gl": "^4.0.7",
+    "react-mapbox-gl": "3.9.2",
+    "react-mapbox-gl-draw": "^1.0.5",
+    "react-redux": "^6.0.0",
+    "react-responsive-select": "^4.5.7",
+    "react-scripts": "2.1.3",
+    "redux": "^4.0.1",
+    "redux-promise": "^0.6.0",
+    "redux-testkit": "^1.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
